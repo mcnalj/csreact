@@ -44,3 +44,7 @@ export default class CommentRemoveConfirmation extends React.Component {
     this.props.onConfirm();
   }
 }
+
+CommentConfirmation.propTypes = {
+  onConfirm: React.PropTypes.func.idRequired
+};
