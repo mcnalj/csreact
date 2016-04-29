@@ -12,6 +12,7 @@ export default class Comment extends React.Component {
 
     this._handleDelete = this._handleDelete.bind(this);
     this._toggleAbuse = this._toggleAbuse.bind(this);
+
   }
 
   render() {
@@ -34,7 +35,7 @@ export default class Comment extends React.Component {
 
         <div className="comment-actions">
           <CommentConfirmation onConfirm={this._handleDelete}>
-            Delete comment?
+            Delete Comment?
           </CommentConfirmation>
 
           <CommentConfirmation onConfirm={this._toggleAbuse}>

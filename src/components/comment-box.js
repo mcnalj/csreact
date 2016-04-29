@@ -61,17 +61,8 @@ export default class CommentBox extends React.Component {
   _getComments() {
     return this.state.comments.map((comment) => {
       return <Comment
-              //  id={comment.id}
-              //  author={comment.author}
-              //  body={comment.body}
-              //  avatarUrl={comment.avatarUrl}
-              // ou
-              {...comment}
-              //  onDelete={this._deleteComment.bind(this)}
-              // ou
-              // onDelte={(commentID) => this._deleteComment(commentID)}
-              // ou
-              onDelete={this._deleteComment}
+               {...comment}
+               onDelete={this._deleteComment}
                key={comment.id} />
     });
   }
@@ -104,7 +95,7 @@ export default class CommentBox extends React.Component {
   _fetchComments() {
     jQuery.ajax({
       method: 'GET',
-      url: 'comments.json',
+      url: this.props.apiUrl,
       success: (comments) => {
         this.setState({ comments })
       }
@@ -118,4 +109,8 @@ export default class CommentBox extends React.Component {
 
     this.setState({ comments });
   }
+}
+
+CommentBox.propTypes = {
+  apiUrl: React.PropTypes.string.isRequired
 }
